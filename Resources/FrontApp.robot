@@ -26,7 +26,22 @@ Send Activation Email
     UserSettings.Enter Channel Subscription Email
     UserSettings.Click Activate Email Channel Subscription Button
 
-Verify Email Channel Activation
+Deactivate Email Channel Subscription
+    UserSettings.Navigate to
+    UserSettings.Click Deactivate Email Channel Subscription Button
+    UserSettings.Click Deactivate Email Channel Subscription Confirmation Yes Button
+
+Restore Email Channel Subscription
+    UserSettings.Navigate to
+    UserSettings.Click Restore Email Channel Subscription Button
+    UserSettings.Click Restore Email Channel Subscription Confirmation Yes Button
+
+Remove Email Channel Subscription
+    UserSettings.Navigate to
+    UserSettings.Click Remove Email Channel Subscription Button
+    UserSettings.Click Remove Email Channel Subscription Confirmation Yes Button
+
+Verify Email Channel is Activated
     UserNotify.Check Success Message
 
 Verify Email Channel is not Activated
@@ -35,15 +50,6 @@ Verify Email Channel is not Activated
 Verify Email Channel is not Activated due to Timeout
     UserNotify.Check Unsuccess Message Timeout
 
-Deactivate Email Channel Subscription
+Verify Email Field is Available for Input
     UserSettings.Navigate to
-    UserSettings.Click Deactivate Email Channel Subscription Button
-    UserSettings.Click Deactivate Email Channel Subscription Confirmation Yes Button
-
-Restore and Remove Email Channel Subscription
-    UserSettings.Navigate to
-    UserSettings.Click Restore Email Channel Subscription Button
-    UserSettings.Click Restore Email Channel Subscription Confirmation Yes Button
-    UserSettings.Click Remove Email Channel Subscription Button
-    UserSettings.Click Remove Email Channel Subscription Confirmation Yes Button
-
+    UserSettings.Check Email Field is Enabled for Input

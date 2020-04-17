@@ -11,3 +11,6 @@ Begin Web Test
 
 End Web Test
     close all browsers
+
+Wait 1h
+    sleep  1h 1m

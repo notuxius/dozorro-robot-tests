@@ -10,11 +10,11 @@ Test Teardown  Common.End Web Test
 ${BROWSER} =  chrome
 ${URL} =  https://dev.dozorro.work
 
-${USER_LOGIN_AND_FB_EMAIL} =  Set login email password from command line with '-v USER_LOGIN_FB_EMAIL:login_fb_email'
-${USER_LOGIN_EMAIL_PASS} =  Set login email password from command line with '-v USER_LOGIN_EMAIL_PASS:login_email_password'
-${SEND_TO_EMAIL} =  Set login email from command line with '-v SEND_TO_EMAIL:send_to_email'
-${USER_FB_NAME} =  Set Facebook name from command line with "-v USER_FB_NAME:'fb_name'"
-${USER_FB_PASS} =  Set Facebook password from command line with '-v USER_FB_PASS:fb_password'
+# TODO should this vars be initialized?
+${SEND_TO_EMAIL} =  
+${USER_LOGIN_AND_FB_EMAIL} =  
+${USER_LOGIN_EMAIL_PASS} =  
+${USER_FB_PASS} =  
 
 *** Test Cases ***
 User should be able to activate and deactivate email channel subscription with correct url token
@@ -26,9 +26,10 @@ User should be able to activate and deactivate email channel subscription with c
     FrontApp.Login as User
     FrontApp.Send Activation Email
     EmailApp.Activate Channel Subscription with Correct Url Token
-    FrontApp.Verify Email Channel Activation
+    FrontApp.Verify Email Channel is Activated
     FrontApp.Deactivate Email Channel Subscription
-    FrontApp.Restore and Remove Email Channel Subscription
+    FrontApp.Restore Email Channel Subscription
+    FrontApp.Remove Email Channel Subscription
 
 User should not be able to activate email channel subscription with incorrect url token
     [Documentation]  Test case
@@ -37,14 +38,18 @@ User should not be able to activate email channel subscription with incorrect ur
     FrontApp.Send Activation Email
     EmailApp.Try to Activate Channel Subscription with Incorrect Url Token
     FrontApp.Verify Email Channel is not Activated
-    # TODO add activate email channel subscription and delete url token message on teardown
+    Email.Nativage to Correct Url Token
+    Email.Delete Url Token Message
+    FrontApp.Verify Email Channel is Activated
+    FrontApp.Remove Email Channel Subscription
 
 User should not be able to activate email channel subscription with expired url token
     [Documentation]  Test case
     [Tags]  Subscription
     FrontApp.Login as User
     FrontApp.Send Activation Email
-    sleep  1h 1m
+    Common.Wait 1h
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is not Activated due to Timeout
-    # TODO add activate email channel subscription and delete url token message on teardown
+    FrontApp.Verify Email Field is Available for Input
+    EmailApp.Delete Url Token Message

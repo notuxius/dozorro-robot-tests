@@ -31,8 +31,7 @@ Enter Channel Subscription Email
 
 Click Activate Email Channel Subscription Button
     click element  ${USER_SETTINGS_ACTIVATE_EMAIL_CHANNEL_SUBS_BUTTON}
-    sleep  1s  # TODO remake in wait for element
-    element should be visible  ${USER_SETTINGS_ACTIVATE_EMAIL_CHANNEL_NOTIFICATION_TEXT}
+    wait until page contains element  ${USER_SETTINGS_ACTIVATE_EMAIL_CHANNEL_NOTIFICATION_TEXT}
 
 Click Deactivate Email Channel Subscription Button
     wait until page contains element  ${USER_SETTINGS_DEACTIVATE_EMAIL_CHANNEL_SUBS_BUTTON}
@@ -61,3 +60,5 @@ Click Remove Email Channel Subscription Confirmation Yes Button
     click element  ${USER_SETTINGS_REMOVE_EMAIL_CHANNEL_SUBS_CONF_YES_BUTTON}
     wait until page contains element  ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}
 
+Check Email Field is Enabled for Input
+    wait until page contains element  ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}
