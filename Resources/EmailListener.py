@@ -12,7 +12,6 @@ class EmailListener:
     ROBOT_LISTENER_API_VERSION = 3
 
     def __init__(self):
-        self.to_addrs = "notuxius@gmail.com"
         self.smtp_addr_port = ""
 
     def extract_email_provider(self, from_addr):
@@ -29,11 +28,13 @@ class EmailListener:
 
     def start_suite(self, name, attrs):
         self.build_in = BuiltIn()
+        self.to_addrs = self.build_in.get_variable_value("${SEND_TO_EMAIL}")
         self.from_addr = self.build_in.get_variable_value("${USER_LOGIN_FB_EMAIL}")
         self.password = self.build_in.get_variable_value("${USER_LOGIN_EMAIL_PASS}")
         self.logfilename = self.build_in.get_variable_value("${LOG FILE}")
         self.reportfilename = self.build_in.get_variable_value("${REPORT FILE}")
         self.smtp_addr_port = self.extract_email_provider(self.from_addr)
+
     def sendmail(
         self, logfilename, reportfilename, from_addr, password, to_addrs, smtp_addr_port
     ):
