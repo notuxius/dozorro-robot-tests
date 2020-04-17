@@ -1,25 +1,25 @@
 *** Settings ***
-Documentation  Test suite
-Resource  ../Resources/FrontApp.robot
-Resource  ../Resources/EmailApp.robot
-Resource  ../Resources/Common.robot
-Test Setup  Common.Begin Web Test
-Test Teardown  Common.End Web Test
+Documentation    Test suite
+Resource         ../Resources/FrontApp.robot
+Resource         ../Resources/EmailApp.robot
+Resource         ../Resources/Common.robot
+Test Setup       Common.Begin Web Test
+Test Teardown    Common.End Web Test
 
 *** Variables ***
-${BROWSER} =  chrome
-${URL} =  https://dev.dozorro.work
+${BROWSER} =    chrome
+${URL} =        https://dev.dozorro.work
 
 # TODO should this vars be initialized?
-${SEND_TO_EMAIL} =  
-${USER_LOGIN_AND_FB_EMAIL} =  
-${USER_LOGIN_EMAIL_PASS} =  
-${USER_FB_PASS} =  
+${SEND_TO_EMAIL} =
+${USER_LOGIN_AND_FB_EMAIL} =
+${USER_LOGIN_EMAIL_PASS} =
+${USER_FB_PASS} =
 
 *** Test Cases ***
 User should be able to activate and deactivate email channel subscription with correct url token
-    [Documentation]  Test case
-    [Tags]  Subscription
+    [Documentation]                                                  Test case
+    [Tags]                                                           Subscription
     # Home.Navigate to
     # Home.Verify Page Loaded
     # Home.Close Initial Survey Popup
@@ -33,8 +33,8 @@ User should be able to activate and deactivate email channel subscription with c
     FrontApp.Verify Email Field is Available for Input
 
 User should not be able to activate email channel subscription with incorrect url token
-    [Documentation]  Test case
-    [Tags]  Subscription
+    [Documentation]                                                           Test case
+    [Tags]                                                                    Subscription
     FrontApp.Login as User
     FrontApp.Send Activation Email
     EmailApp.Try to Activate Channel Subscription with Incorrect Url Token
@@ -46,8 +46,8 @@ User should not be able to activate email channel subscription with incorrect ur
     FrontApp.Verify Email Field is Available for Input
 
 User should not be able to activate email channel subscription with expired url token
-    [Documentation]  Test case
-    [Tags]  Subscription
+    [Documentation]                                                  Test case
+    [Tags]                                                           Subscription
     FrontApp.Login as User
     FrontApp.Send Activation Email
     Common.Wait 1h

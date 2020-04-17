@@ -1,8 +1,8 @@
 *** Settings ***
-Resource  ./PO/Home.robot
-Resource  ./PO/TopNav.robot
-Resource  ./PO/UserSettings.robot
-Resource  ./PO/UserNotify.robot
+Resource    ./PO/Home.robot
+Resource    ./PO/TopNav.robot
+Resource    ./PO/UserSettings.robot
+Resource    ./PO/UserNotify.robot
 
 *** Variables ***
 
