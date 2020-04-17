@@ -13,10 +13,10 @@ Login as User
     Home.Verify Page Loaded
     Home.Close Initial Survey Popup
     TopNav.Click Login Button
-    Home.Click Login Popup Facebook Button
-    # Home.Click Login Popup Google Button
-    Home.Input Login Popup User Email
-    Home.Input Login Popup User Password
+    Home.Click Facebook Login Popup Button
+    # Home.Click Google Login Popup Button
+    Home.Input Facebook Login Popup User Email
+    Home.Input Facebook Login Popup User Password
     Home.Verify User Logged In
 
 Send Activation Email
@@ -39,3 +39,11 @@ Deactivate Email Channel Subscription
     UserSettings.Navigate to
     UserSettings.Click Deactivate Email Channel Subscription Button
     UserSettings.Click Deactivate Email Channel Subscription Confirmation Yes Button
+
+Restore and Remove Email Channel Subscription
+    UserSettings.Navigate to
+    UserSettings.Click Restore Email Channel Subscription Button
+    UserSettings.Click Restore Email Channel Subscription Confirmation Yes Button
+    UserSettings.Click Remove Email Channel Subscription Button
+    UserSettings.Click Remove Email Channel Subscription Confirmation Yes Button
+

@@ -10,7 +10,7 @@ Test Teardown  Common.End Web Test
 ${BROWSER} =  chrome
 ${URL} =  https://dev.dozorro.work
 
-${USER_LOGIN_FB_EMAIL} =  Set login email password from command line with '-v USER_LOGIN_FB_EMAIL:login_fb_email'
+${USER_LOGIN_AND_FB_EMAIL} =  Set login email password from command line with '-v USER_LOGIN_FB_EMAIL:login_fb_email'
 ${USER_LOGIN_EMAIL_PASS} =  Set login email password from command line with '-v USER_LOGIN_EMAIL_PASS:login_email_password'
 ${SEND_TO_EMAIL} =  Set login email from command line with '-v SEND_TO_EMAIL:send_to_email'
 ${USER_FB_NAME} =  Set Facebook name from command line with "-v USER_FB_NAME:'fb_name'"
@@ -21,12 +21,14 @@ User should be able to activate and deactivate email channel subscription with c
     [Documentation]  Test case
     [Tags]  Subscription
     # Home.Navigate to
+    # Home.Verify Page Loaded
+    # Home.Close Initial Survey Popup
     FrontApp.Login as User
     FrontApp.Send Activation Email
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel Activation
     FrontApp.Deactivate Email Channel Subscription
-    # TODO add deactivatated email channel subscription and delete url token message on teardown
+    FrontApp.Restore and Remove Email Channel Subscription
 
 User should not be able to activate email channel subscription with incorrect url token
     [Documentation]  Test case

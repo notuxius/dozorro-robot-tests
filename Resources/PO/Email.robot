@@ -15,7 +15,7 @@ ${EMAIL_URL_TOKEN_WITHOUT_LAST_CHAR_REGEXP} =  ^.*?(?=\d$)
 *** Keywords ***
 # TODO refactor into setup common keyword
 Login
-    open mailbox  host=${EMAIL_HOST}  user=${USER_LOGIN_FB_EMAIL}  password=${USER_LOGIN_EMAIL_PASS}  port=${EMAIL_PORT}
+    open mailbox  host=${EMAIL_HOST}  user=${USER_LOGIN_AND_FB_EMAIL}  password=${USER_LOGIN_EMAIL_PASS}  port=${EMAIL_PORT}
 
 # TODO refactor into more atomic keywords
 Search for Url Token Message

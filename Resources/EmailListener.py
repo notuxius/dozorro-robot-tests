@@ -29,7 +29,7 @@ class EmailListener:
     def start_suite(self, name, attrs):
         self.build_in = BuiltIn()
         self.to_addrs = self.build_in.get_variable_value("${SEND_TO_EMAIL}")
-        self.from_addr = self.build_in.get_variable_value("${USER_LOGIN_FB_EMAIL}")
+        self.from_addr = self.build_in.get_variable_value("${USER_LOGIN_AND_FB_EMAIL}")
         self.password = self.build_in.get_variable_value("${USER_LOGIN_EMAIL_PASS}")
         self.logfilename = self.build_in.get_variable_value("${LOG FILE}")
         self.reportfilename = self.build_in.get_variable_value("${REPORT FILE}")
