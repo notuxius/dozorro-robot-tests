@@ -41,6 +41,10 @@ Remove Email Channel Subscription
     UserSettings.Click Remove Email Channel Subscription Button
     UserSettings.Click Remove Email Channel Subscription Confirmation Yes Button
 
+Repeat Email Channel Activation
+    UserSettings.Navigate to
+    UserSettings.Click Repeat Email Channel Activation Button
+
 Verify Email Channel is Activated
     UserNotify.Check Success Message
 

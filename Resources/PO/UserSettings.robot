@@ -14,6 +14,7 @@ ${USER_SETTINGS_REMOVE_EMAIL_CHANNEL_SUBS_BUTTON}  class=icon-remove
 ${USER_SETTINGS_REMOVE_EMAIL_CHANNEL_SUBS_CONF_YES_BUTTON}  xpath=//a[contains(text(), 'Так, видалити')]
 ${USER_SETTINGS_RESTORE_EMAIL_CHANNEL_SUBS_BUTTON}  xpath=//span[contains(text(), 'Відновити')]
 ${USER_SETTINGS_RESTORE_EMAIL_CHANNEL_SUBS_CONF_YES_BUTTON}  xpath=(//a[contains(text(), 'Ок')])[2]
+${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}  xpath=//span[contains(text(), 'Повторити активацію')]
 
 *** Keywords ***
 Navigate to
@@ -58,7 +59,10 @@ Click Remove Email Channel Subscription Button
 Click Remove Email Channel Subscription Confirmation Yes Button
     wait until page contains element  ${USER_SETTINGS_REMOVE_EMAIL_CHANNEL_SUBS_CONF_YES_BUTTON}
     click element  ${USER_SETTINGS_REMOVE_EMAIL_CHANNEL_SUBS_CONF_YES_BUTTON}
-    wait until page contains element  ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}
+
+Click Repeat Email Channel Activation Button
+    wait until page contains element  ${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}
+    click element  ${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}
 
 Check Email Field is Enabled for Input
     wait until page contains element  ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}

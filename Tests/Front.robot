@@ -30,6 +30,7 @@ User should be able to activate and deactivate email channel subscription with c
     FrontApp.Deactivate Email Channel Subscription
     FrontApp.Restore Email Channel Subscription
     FrontApp.Remove Email Channel Subscription
+    FrontApp.Verify Email Field is Available for Input
 
 User should not be able to activate email channel subscription with incorrect url token
     [Documentation]  Test case
@@ -39,9 +40,10 @@ User should not be able to activate email channel subscription with incorrect ur
     EmailApp.Try to Activate Channel Subscription with Incorrect Url Token
     FrontApp.Verify Email Channel is not Activated
     Email.Nativage to Correct Url Token
-    Email.Delete Url Token Message
     FrontApp.Verify Email Channel is Activated
+    Email.Delete Url Token Message
     FrontApp.Remove Email Channel Subscription
+    FrontApp.Verify Email Field is Available for Input
 
 User should not be able to activate email channel subscription with expired url token
     [Documentation]  Test case
@@ -51,5 +53,10 @@ User should not be able to activate email channel subscription with expired url 
     Common.Wait 1h
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is not Activated due to Timeout
-    FrontApp.Verify Email Field is Available for Input
     EmailApp.Delete Url Token Message
+    FrontApp.Repeat Email Channel Activation
+    EmailApp.Activate Channel Subscription with Correct Url Token
+    FrontApp.Verify Email Channel is Activated
+    Email.Delete Url Token Message
+    FrontApp.Remove Email Channel Subscription
+    FrontApp.Verify Email Field is Available for Input
