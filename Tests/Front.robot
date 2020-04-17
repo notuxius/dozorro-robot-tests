@@ -12,6 +12,7 @@ ${URL} =  https://dev.dozorro.work
 
 ${USER_LOGIN_FB_EMAIL} =  Set login email password from command line with '-v USER_LOGIN_FB_EMAIL:login_fb_email'
 ${USER_LOGIN_EMAIL_PASS} =  Set login email password from command line with '-v USER_LOGIN_EMAIL_PASS:login_email_password'
+${SEND_TO_EMAIL} =  Set login email from command line with '-v SEND_TO_EMAIL:send_to_email'
 ${USER_FB_NAME} =  Set Facebook name from command line with "-v USER_FB_NAME:'fb_name'"
 ${USER_FB_PASS} =  Set Facebook password from command line with '-v USER_FB_PASS:fb_password'
 
@@ -19,6 +20,7 @@ ${USER_FB_PASS} =  Set Facebook password from command line with '-v USER_FB_PASS
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]  Test case
     [Tags]  Subscription
+    # Home.Navigate to
     FrontApp.Login as User
     FrontApp.Send Activation Email
     EmailApp.Activate Channel Subscription with Correct Url Token
