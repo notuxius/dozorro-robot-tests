@@ -1,4 +1,3 @@
-import time
 import smtplib
 
 from email.mime.multipart import MIMEMultipart
@@ -31,23 +30,29 @@ class EmailListener:
         self.to_addrs = self.build_in.get_variable_value("${SEND_TO_EMAIL}")
         self.from_addr = self.build_in.get_variable_value("${USER_LOGIN}")
         self.password = self.build_in.get_variable_value("${USER_PASS}")
-        self.logfilename = self.build_in.get_variable_value("${LOG FILE}")
-        self.reportfilename = self.build_in.get_variable_value("${REPORT FILE}")
+        self.log_file_name = self.build_in.get_variable_value("${LOG FILE}")
+        self.report_file_name = self.build_in.get_variable_value("${REPORT FILE}")
         self.smtp_addr_port = self.extract_email_provider(self.from_addr)
 
-    def read_and_attach_file(self, rafilename):
-        with open(rafilename, "rb") as fh:
-            att = MIMEApplication(fh.read(), _subtype="html")
+    def read_and_attach_file(self, ra_file_name):
+        with open(ra_file_name, "rb") as ra_file_var:
+            att = MIMEApplication(ra_file_var.read(), _subtype="html")
             att.add_header(
                 "Content-Disposition",
                 "attachment",
-                filename=str(rafilename.split("\\")[-1:][0]),
+                filename=str(ra_file_name.split("\\")[-1:][0]),
             )
 
         return att
 
     def sendmail(
-        self, logfilename, reportfilename, from_addr, password, to_addrs, smtp_addr_port
+        self,
+        log_file_name,
+        report_file_name,
+        from_addr,
+        password,
+        to_addrs,
+        smtp_addr_port,
     ):
         # TODO replace print with logger ro message
         print("Preparing to send email message")
@@ -60,9 +65,8 @@ class EmailListener:
         msg["To"] = to_addrs
 
         print("Attaching log and report files to email message")
-        # TODO also attach img files
-        msg.attach(self.read_and_attach_file(logfilename))
-        msg.attach(self.read_and_attach_file(reportfilename))
+        msg.attach(self.read_and_attach_file(log_file_name))
+        msg.attach(self.read_and_attach_file(report_file_name))
 
         print("Creating secure connection")
         server.starttls()
@@ -76,8 +80,8 @@ class EmailListener:
 
     def close(self):
         self.sendmail(
-            self.logfilename,
-            self.reportfilename,
+            self.log_file_name,
+            self.report_file_name,
             self.from_addr,
             self.password,
             self.to_addrs,

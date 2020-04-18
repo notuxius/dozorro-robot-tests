@@ -3,7 +3,9 @@ Documentation    Test suite
 Resource         ../Resources/FrontApp.robot
 Resource         ../Resources/EmailApp.robot
 Resource         ../Resources/Common.robot
-Test Setup       Common.Begin Web Test
+Test Setup       Run Keywords
+...              Common.Begin Web Test          AND
+...              Set Screenshot Directory       EMBED
 Test Teardown    Common.End Web Test
 
 *** Variables ***
