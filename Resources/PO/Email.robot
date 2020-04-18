@@ -9,7 +9,7 @@ ${EMAIL_PORT} =                                  993
 ${EMAIL_SENDER} =                                notify@bot.dozorro.org
 ${EMAIL_POLL_FREQ} =                             2
 ${EMAIL_TIMEOUT} =                               30
-${EMAIL_URL_TOKEN_REGEXP} =                      https://.*                # TODO redo regex into more accurate one
+${EMAIL_URL_TOKEN_REGEXP} =                      https://.+\d{3}(?:-\d{3}){3}
 ${EMAIL_URL_TOKEN_WITHOUT_LAST_CHAR_REGEXP} =    ^.*?(?=\d$)
 
 *** Keywords ***
