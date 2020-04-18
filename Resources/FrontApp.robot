@@ -9,13 +9,17 @@ Resource    ./PO/UserNotify.robot
 
 *** Keywords ***
 Log in with Facebook
-    Home.Navigate to
-    Home.Close Initial Survey Popup
-    TopNav.Click Login Button
+    Home.Open Login Popup
     Home.Click Facebook Login Popup Button
-    # Home.Click Google Login Popup Button
-    Home.Input Facebook Login Popup User Email
-    Home.Input Facebook Login Popup User Password
+    Home.Enter Facebook Login Popup User Email
+    Home.Enter Facebook Login Popup User Password
+    Home.Verify User Logged In
+
+Log in with Google
+    Home.Open Login Popup
+    Home.Click Google Login Popup Button
+    Home.Enter Google Login Popup User Email
+    Home.Enter Google Login Popup User Password
     Home.Verify User Logged In
 
 Send Activation Email

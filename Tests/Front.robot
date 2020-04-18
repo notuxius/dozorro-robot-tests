@@ -7,23 +7,16 @@ Test Setup       Common.Begin Web Test
 Test Teardown    Common.End Web Test
 
 *** Variables ***
-${BROWSER} =    chrome
-${URL} =        https://dev.dozorro.work
-
-# TODO should this vars be initialized?
-${SEND_TO_EMAIL} =
-${USER_LOGIN_AND_FB_EMAIL} =
-${USER_LOGIN_EMAIL_PASS} =
-${USER_FB_PASS} =
+${BROWSER} =           chrome
+${URL} =               https://dev.dozorro.work
+${LOGIN_PROVIDER} =    google
 
 *** Test Cases ***
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case
     [Tags]                                                           Subscription
-    # Home.Navigate to
-    # Home.Verify Page Loaded
-    # Home.Close Initial Survey Popup
-    FrontApp.Log in with Facebook
+    Run Keyword If                                                   '${LOGIN_PROVIDER}'=='facebook'    FrontApp.Log in with Facebook
+    ...                                                              ELSE                               FrontApp.Log in with Google
     FrontApp.Send Activation Email
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is Activated

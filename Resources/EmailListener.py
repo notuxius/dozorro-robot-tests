@@ -21,16 +21,13 @@ class EmailListener:
         if extracted_email_provider == "gmail.com":
             smtp_addr_port = "smtp.gmail.com:587"
 
-        elif extracted_email_provider == "ya.ru":
-            smtp_addr_port = "smtp.yandex.ru:587"
-
         return smtp_addr_port
 
     def start_suite(self, name, attrs):
         self.build_in = BuiltIn()
         self.to_addrs = self.build_in.get_variable_value("${SEND_TO_EMAIL}")
-        self.from_addr = self.build_in.get_variable_value("${USER_LOGIN_AND_FB_EMAIL}")
-        self.password = self.build_in.get_variable_value("${USER_LOGIN_EMAIL_PASS}")
+        self.from_addr = self.build_in.get_variable_value("${USER_LOGIN}")
+        self.password = self.build_in.get_variable_value("${USER_PASS}")
         self.logfilename = self.build_in.get_variable_value("${LOG FILE}")
         self.reportfilename = self.build_in.get_variable_value("${REPORT FILE}")
         self.smtp_addr_port = self.extract_email_provider(self.from_addr)

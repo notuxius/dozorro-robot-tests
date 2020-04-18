@@ -4,7 +4,7 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${EMAIL_HOST} =                                  imap.yandex.ru
+${EMAIL_HOST} =                                  imap.gmail.com
 ${EMAIL_PORT} =                                  993
 ${EMAIL_SENDER} =                                notify@bot.dozorro.org
 ${EMAIL_POLL_FREQ} =                             2
@@ -16,7 +16,7 @@ ${EMAIL_URL_TOKEN_WITHOUT_LAST_CHAR_REGEXP} =    ^.*?(?=\d$)
 # TODO refactor keywords
 # TODO refactor into setup keyword
 Login
-    open mailbox    host=${EMAIL_HOST}    user=${USER_LOGIN_AND_FB_EMAIL}    password=${USER_LOGIN_EMAIL_PASS}    port=${EMAIL_PORT}
+    open mailbox    host=${EMAIL_HOST}    user=${USER_LOGIN}    password=${USER_PASS}    port=${EMAIL_PORT}
 
 # TODO refactor into more atomic keywords
 Search for Url Token Message

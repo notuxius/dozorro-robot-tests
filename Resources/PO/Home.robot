@@ -18,18 +18,32 @@ Close Initial Survey Popup
     click link                          ${HOME_INIT_SURVEY_POPUP_CLOSE_LINK}
     wait until page does not contain    ${HOME_INIT_SURVEY_POPUP_CLOSE_LINK}
 
+Open Login Popup
+    Home.Navigate to
+    Close Initial Survey Popup
+    TopNav.Click Login Button
+
 Click Facebook Login Popup Button
     click link    ${HOME_FACEBOOK_LOGIN_POPUP_BUTTON}
 
-Click Google Login Popup Button
-    click link    ${HOME_LOGIN_POPUP_GOOGLE_BUTTON}
+Enter Facebook Login Popup User Email
+    press keys    ${HOME_FACEBOOK_LOGIN_POPUP_EMAIL_INPUT}    ${USER_LOGIN}
 
-Input Facebook Login Popup User Email
-    press keys    ${HOME_FACEBOOK_LOGIN_POPUP_EMAIL_INPUT}    ${USER_LOGIN_AND_FB_EMAIL}
-
-Input Facebook Login Popup User Password
-    press keys    ${HOME_FACEBOOK_LOGIN_POPUP_PASS_INPUT}    ${USER_FB_PASS}
+Enter Facebook Login Popup User Password
+    press keys    ${HOME_FACEBOOK_LOGIN_POPUP_PASS_INPUT}    ${USER_PASS}
     press keys    ${HOME_FACEBOOK_LOGIN_POPUP_PASS_INPUT}    RETURN
+
+Click Google Login Popup Button
+    click link    ${HOME_GOOGLE_LOGIN_POPUP_BUTTON}
+
+Enter Google Login Popup User Email
+    press keys    ${HOME_GOOGLE_LOGIN_POPUP_EMAIL_INPUT}    ${USER_LOGIN}
+    press keys    ${HOME_GOOGLE_LOGIN_POPUP_EMAIL_INPUT}    RETURN
+
+Enter Google Login Popup User Password
+    wait until element is visible    ${HOME_GOOGLE_LOGIN_POPUP_PASS_INPUT}
+    press keys                       ${HOME_GOOGLE_LOGIN_POPUP_PASS_INPUT}    ${USER_PASS}
+    press keys                       ${HOME_GOOGLE_LOGIN_POPUP_PASS_INPUT}    RETURN
 
 Verify User Logged In
     wait until page contains element    ${TOP_NAV_USER_NAME_LINK}    10s

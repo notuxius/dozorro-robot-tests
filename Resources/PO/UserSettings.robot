@@ -25,7 +25,7 @@ Click Settings Tab
 
 Enter Channel Subscription Email
     clear element text    ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}    # TODO check if email is already in the field here before clearing it
-    press keys            ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}    ${USER_LOGIN_AND_FB_EMAIL}
+    press keys            ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}    ${USER_LOGIN}
 
 Click Activate Email Channel Subscription Button
     click element                       ${USER_SETTINGS_ACTIVATE_EMAIL_CHANNEL_SUBS_BUTTON}
