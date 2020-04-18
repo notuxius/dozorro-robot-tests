@@ -21,6 +21,9 @@ class EmailListener:
         if extracted_email_provider == "gmail.com":
             smtp_addr_port = "smtp.gmail.com:587"
 
+        elif extracted_email_provider == "ya.ru" or "yandex.ru":
+            smtp_addr_port = "smtp.yandex.com:587"
+
         return smtp_addr_port
 
     def start_suite(self, name, attrs):
@@ -32,11 +35,20 @@ class EmailListener:
         self.reportfilename = self.build_in.get_variable_value("${REPORT FILE}")
         self.smtp_addr_port = self.extract_email_provider(self.from_addr)
 
+    def read_and_attach_file(self, rafilename):
+        with open(rafilename, "rb") as fh:
+            att = MIMEApplication(fh.read(), _subtype="html")
+            att.add_header(
+                "Content-Disposition",
+                "attachment",
+                filename=str(rafilename.split("\\")[-1:][0]),
+            )
+
+        return att
+
     def sendmail(
         self, logfilename, reportfilename, from_addr, password, to_addrs, smtp_addr_port
     ):
-        # TODO move variables to self
-        # Send email with attached report file
         # TODO replace print with logger ro message
         print("Preparing to send email message")
         server = smtplib.SMTP(smtp_addr_port)
@@ -49,17 +61,8 @@ class EmailListener:
 
         print("Attaching log and report files to email message")
         # TODO also attach img files
-        with open(logfilename, "rb") as lfp:
-            latt = MIMEApplication(lfp.read(), _subtype="html")
-
-        latt.add_header("Content-Disposition", "attachment", filename=logfilename)
-        msg.attach(latt)
-
-        with open(reportfilename, "rb") as rfp:
-            ratt = MIMEApplication(rfp.read(), _subtype="html")
-
-        ratt.add_header("Content-Disposition", "attachment", filename=reportfilename)
-        msg.attach(ratt)
+        msg.attach(self.read_and_attach_file(logfilename))
+        msg.attach(self.read_and_attach_file(reportfilename))
 
         print("Creating secure connection")
         server.starttls()

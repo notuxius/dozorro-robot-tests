@@ -12,6 +12,11 @@ ${URL} =               https://dev.dozorro.work
 ${LOGIN_PROVIDER} =    google
 
 *** Test Cases ***
+User should not be able to navigate to homepage
+    [Documentation]     Test case
+    [Tags]              Subscription
+    Home.Navigate to
+
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case
     [Tags]                                                           Subscription
