@@ -7,11 +7,11 @@ ${USER_NOTIFY_UNSUCCESS_CHANNEL_ACTIVATION_MESSAGE} =            Помилка 
 ${USER_NOTIFY_UNSUCCESS_CHANNEL_ACTIVATION_TIMEOUT_MESSAGE} =    Час очікування вичерпався
 
 *** Keywords ***
-Check Success Message
+Verify Success Message
     wait until page contains    ${USER_NOTIFY_SUCCESS_CHANNEL_ACTIVATION_MESSAGE}
 
-Check Unsuccess Message
+Verify Unsuccess Message
     wait until page contains    ${USER_NOTIFY_UNSUCCESS_CHANNEL_ACTIVATION_MESSAGE}
 
-Check Unsuccess Message Timeout
+Verify Unsuccess Message Timeout
     wait until page contains    ${USER_NOTIFY_UNSUCCESS_CHANNEL_ACTIVATION_TIMEOUT_MESSAGE}

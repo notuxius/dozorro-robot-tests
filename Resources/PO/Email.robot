@@ -13,7 +13,8 @@ ${EMAIL_URL_TOKEN_REGEXP} =                      https://.*                # TOD
 ${EMAIL_URL_TOKEN_WITHOUT_LAST_CHAR_REGEXP} =    ^.*?(?=\d$)
 
 *** Keywords ***
-# TODO refactor into setup common keyword
+# TODO refactor keywords
+# TODO refactor into setup keyword
 Login
     open mailbox    host=${EMAIL_HOST}    user=${USER_LOGIN_AND_FB_EMAIL}    password=${USER_LOGIN_EMAIL_PASS}    port=${EMAIL_PORT}
 
@@ -45,6 +46,6 @@ Delete Url Token Message
     ${searched_url_token_message} =    Search for Url Token Message
     delete email                       ${searched_url_token_message}
 
-# TODO refactor into teardown common keyword
+# TODO refactor into teardown keyword
 Logout
     close mailbox

@@ -23,7 +23,7 @@ User should be able to activate and deactivate email channel subscription with c
     # Home.Navigate to
     # Home.Verify Page Loaded
     # Home.Close Initial Survey Popup
-    FrontApp.Login as User
+    FrontApp.Log in with Facebook
     FrontApp.Send Activation Email
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is Activated
@@ -35,28 +35,27 @@ User should be able to activate and deactivate email channel subscription with c
 User should not be able to activate email channel subscription with incorrect url token
     [Documentation]                                                           Test case
     [Tags]                                                                    Subscription
-    FrontApp.Login as User
+    FrontApp.Log in with Facebook
     FrontApp.Send Activation Email
     EmailApp.Try to Activate Channel Subscription with Incorrect Url Token
     FrontApp.Verify Email Channel is not Activated
     Email.Nativage to Correct Url Token
     FrontApp.Verify Email Channel is Activated
     Email.Delete Url Token Message
+    Email.Logout
     FrontApp.Remove Email Channel Subscription
     FrontApp.Verify Email Field is Available for Input
 
 User should not be able to activate email channel subscription with expired url token
     [Documentation]                                                  Test case
     [Tags]                                                           Subscription
-    FrontApp.Login as User
+    FrontApp.Log in with Facebook
     FrontApp.Send Activation Email
     Common.Wait 1h
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is not Activated due to Timeout
-    EmailApp.Delete Url Token Message
     FrontApp.Repeat Email Channel Activation
     EmailApp.Activate Channel Subscription with Correct Url Token
     FrontApp.Verify Email Channel is Activated
-    Email.Delete Url Token Message
     FrontApp.Remove Email Channel Subscription
     FrontApp.Verify Email Field is Available for Input

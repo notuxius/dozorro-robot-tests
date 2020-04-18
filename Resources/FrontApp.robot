@@ -8,9 +8,8 @@ Resource    ./PO/UserNotify.robot
 
 
 *** Keywords ***
-Login as User
+Log in with Facebook
     Home.Navigate to
-    Home.Verify Page Loaded
     Home.Close Initial Survey Popup
     TopNav.Click Login Button
     Home.Click Facebook Login Popup Button
@@ -21,7 +20,6 @@ Login as User
 
 Send Activation Email
     TopNav.Click User Nofications Link
-    UserSettings.Verify Page Loaded
     UserSettings.Click Settings Tab
     UserSettings.Enter Channel Subscription Email
     UserSettings.Click Activate Email Channel Subscription Button
@@ -46,14 +44,14 @@ Repeat Email Channel Activation
     UserSettings.Click Repeat Email Channel Activation Button
 
 Verify Email Channel is Activated
-    UserNotify.Check Success Message
+    UserNotify.Verify Success Message
 
 Verify Email Channel is not Activated
-    UserNotify.Check Unsuccess Message
+    UserNotify.Verify Unsuccess Message
 
 Verify Email Channel is not Activated due to Timeout
-    UserNotify.Check Unsuccess Message Timeout
+    UserNotify.verify Unsuccess Message Timeout
 
 Verify Email Field is Available for Input
     UserSettings.Navigate to
-    UserSettings.Check Email Field is Enabled for Input
+    UserSettings.Verify Email Channel Subscription Input Field is Enabled

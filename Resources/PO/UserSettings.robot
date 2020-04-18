@@ -20,9 +20,6 @@ ${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}           xpath=//span[c
 Navigate to
     go to    ${USER_SETTINGS_URL}
 
-Verify Page Loaded
-    wait until page contains element    ${USER_SETTINGS_WRAPPER}
-
 Click Settings Tab
     click element    ${USER_SETTINGS_TAB}
 
@@ -64,5 +61,5 @@ Click Repeat Email Channel Activation Button
     wait until page contains element    ${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}
     click element                       ${USER_SETTINGS_REPEAT_EMAIL_CHANNEL_ACTIVATION_BUTTON}
 
-Check Email Field is Enabled for Input
+Verify Email Channel Subscription Input Field is Enabled
     wait until page contains element    ${USER_SETTINGS_EMAIL_CHANNEL_SUBS_INPUT}
