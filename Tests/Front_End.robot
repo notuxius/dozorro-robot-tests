@@ -16,14 +16,10 @@ ${LOGIN_PROVIDER} =    google
 
 *** Test Cases ***
 # TODO verify browser is on correct page before keywords to make them more atomic
-User should not be able to navigate to close initial survey popup twice
-    [Documentation]                                                  Test case
-    [Tags]                                                           Dummy
-    FrontEndApp.Log in
-    UserSettings.Navigate to
-    UserSettings.Enter Channel Subscription Email
-    UserSettings.Click Activate Email Channel Subscription Button
-
+Often changing test that is used for testing the app itself
+    [Documentation]     Test case
+    [Tags]              Dummy
+    Home.Navigate to
 
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case

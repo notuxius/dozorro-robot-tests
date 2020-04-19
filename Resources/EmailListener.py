@@ -2,6 +2,7 @@ import logging
 import smtplib
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from robot.libraries.BuiltIn import BuiltIn
 
@@ -63,6 +64,11 @@ class EmailListener:
         msg["Subject"] = "Dozorro Automation Status"
         msg["From"] = from_addr
         msg["To"] = to_addrs
+
+        body = "Download log and report files locally for proper cross-file links navigation in them"
+        body = MIMEText(body)
+        logging.info("Attaching body text to email message")
+        msg.attach(body)
 
         logging.info("Attaching log and report files to email message")
         msg.attach(self.read_and_attach_file(log_file_name))
