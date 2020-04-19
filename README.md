@@ -9,5 +9,5 @@ Dependency libraries:
 robotframework-imaplibrary
 robotframework-seleniumlibrary
 
-Link to modified init file in order to imaplibrary work properly with tests:
+Link to modified init file in order for imaplibrary to work properly with tests:
 https://gist.github.com/notuxius/19be04cd27d7249ea4612448b9ae9563

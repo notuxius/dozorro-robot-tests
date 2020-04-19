@@ -57,7 +57,7 @@ Verify Email Channel is not Activated
     UserNotify.Verify Unsuccess Message
 
 Verify Email Channel is not Activated due to Timeout
-    UserNotify.verify Unsuccess Message Timeout
+    UserNotify.Verify Unsuccess Message Timeout
 
 Verify Email Field is Available for Input
     UserSettings.Navigate to
