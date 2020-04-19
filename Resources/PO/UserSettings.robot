@@ -1,5 +1,4 @@
 *** Settings ***
-Library    SeleniumLibrary
 
 *** Variables ***
 ${USER_SETTINGS_URL} =                                            ${URL}/user/settings

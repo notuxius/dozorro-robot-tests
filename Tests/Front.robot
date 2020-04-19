@@ -3,7 +3,8 @@ Documentation    Test suite
 Resource         ../Resources/FrontApp.robot
 Resource         ../Resources/EmailApp.robot
 Resource         ../Resources/Common.robot
-Suite Setup      Set Screenshot Directory       EMBED
+# TODO take shots with ScreenCapLibrary with reduced size
+Suite Setup      Set Screenshot Directory    EMBED
 Test Setup       Common.Begin Web Test
 Test Teardown    Common.End Web Test
 

@@ -1,8 +1,7 @@
 *** Settings ***
-Resource  ./PO/Email.robot
+Resource    ./PO/Email.robot
 
 *** Variables ***
-
 
 *** Keywords ***
 Activate Channel Subscription with Correct Url Token
@@ -12,7 +11,7 @@ Activate Channel Subscription with Correct Url Token
     Email.Nativage to Correct Url Token
     Email.Delete Url Token Message
     Email.Logout
-    
+
 Try to Activate Channel Subscription with Incorrect Url Token
     Email.Login
     Email.Search for Url Token Message

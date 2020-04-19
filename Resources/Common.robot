@@ -3,7 +3,6 @@ Library    SeleniumLibrary
 
 *** Variables ***
 
-
 *** Keywords ***
 Begin Web Test
     open browser    about:blank    ${BROWSER}

@@ -1,6 +1,5 @@
 *** Settings ***
 
-
 *** Variables ***
 ${USER_NOTIFY_SUCCESS_CHANNEL_ACTIVATION_MESSAGE} =              Канал активовано успішно
 ${USER_NOTIFY_UNSUCCESS_CHANNEL_ACTIVATION_MESSAGE} =            Помилка коду активації

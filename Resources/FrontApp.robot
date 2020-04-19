@@ -6,7 +6,6 @@ Resource    ./PO/UserNotify.robot
 
 *** Variables ***
 
-
 *** Keywords ***
 Log in with Facebook
     Home.Open Login Popup

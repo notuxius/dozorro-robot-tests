@@ -1,5 +1,4 @@
 *** Settings ***
-Library    SeleniumLibrary
 
 *** Variables ***
 ${HOME_INIT_SURVEY_POPUP_CLOSE_LINK} =        xpath=//div[@id="review_form3"]//a[@class='delete']

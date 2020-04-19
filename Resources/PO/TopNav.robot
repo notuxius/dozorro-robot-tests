@@ -1,5 +1,4 @@
 *** Settings ***
-Library    SeleniumLibrary
 
 *** Variables ***
 ${TOP_NAV_LOGIN_LINK} =               xpath=//a[@data-formjs="open_login"]
