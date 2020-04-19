@@ -15,11 +15,11 @@ ${URL} =               https://dev.dozorro.work
 ${LOGIN_PROVIDER} =    google
 
 *** Test Cases ***
-# TODO verify browser is on correct page before keywords to make them more atomic
 Often changing test that is used for testing the app itself
-    [Documentation]     Test case
-    [Tags]              Dummy
+    [Documentation]                    Test case
+    [Tags]                             Dummy
     Home.Navigate to
+    UserSettings.Click Settings Tab
 
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case
