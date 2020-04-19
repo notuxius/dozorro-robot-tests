@@ -1,7 +1,7 @@
+import logging
 import smtplib
-
-from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 
 from robot.libraries.BuiltIn import BuiltIn
 
@@ -45,7 +45,7 @@ class EmailListener:
 
         return att
 
-    def sendmail(
+    def send_mail(
         self,
         log_file_name,
         report_file_name,
@@ -54,32 +54,32 @@ class EmailListener:
         to_addrs,
         smtp_addr_port,
     ):
-        # TODO replace print with logger ro message
-        print("Preparing to send email message")
+        logging.basicConfig(format="%(levelname)s:%(message)s")
+        logging.info("Preparing to send email message")
         server = smtplib.SMTP(smtp_addr_port)
 
-        print("Creating email message")
+        logging.info("Creating email message")
         msg = MIMEMultipart()
         msg["Subject"] = "Dozorro Automation Status"
         msg["From"] = from_addr
         msg["To"] = to_addrs
 
-        print("Attaching log and report files to email message")
+        logging.info("Attaching log and report files to email message")
         msg.attach(self.read_and_attach_file(log_file_name))
         msg.attach(self.read_and_attach_file(report_file_name))
 
-        print("Creating secure connection")
+        logging.info("Creating secure connection")
         server.starttls()
 
-        print("Logging into email server")
+        logging.info("Logging into email server")
         server.login(from_addr, password)
 
-        print("Sending email message")
+        logging.info("Sending email message")
         # TODO send two files linked
         server.sendmail(from_addr, to_addrs, msg.as_string())
 
     def close(self):
-        self.sendmail(
+        self.send_mail(
             self.log_file_name,
             self.report_file_name,
             self.from_addr,
