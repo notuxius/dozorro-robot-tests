@@ -1,7 +1,7 @@
 # dozorro-robot-tests
 
 Launch tests with:
-robot --listener .\Resources\EmailListener.py -v SEND_TO_EMAIL:send_to_email -v USER_LOGIN:user_login -v USER_PASS:user_password -d .\Results\ .\Tests\Front.robot
+robot --listener .\Resources\EmailListener.py -v SEND_TO_EMAIL:send_to_email -v USER_LOGIN:user_login -v USER_PASS:user_password -d .\Results\ .\Tests\Front_End.robot
 
 Add '-v LOGIN_PROVIDER:facebook' if you want to launch tests with Facebook login, Google login is used by default
 
