@@ -22,8 +22,8 @@ Log in with Google
     Home.Verify User Logged In
 
 Log in
-    Run Keyword If    '${LOGIN_PROVIDER}'=='facebook'    FrontApp.Log in with Facebook
-    ...               ELSE                               FrontApp.Log in with Google
+    Run Keyword If    '${LOGIN_PROVIDER}'=='facebook'    FrontEndApp.Log in with Facebook
+    ...               ELSE                               FrontEndApp.Log in with Google
 
 Send Activation Email
     TopNav.Click User Nofications Link
