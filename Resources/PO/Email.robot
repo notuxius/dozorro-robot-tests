@@ -30,12 +30,12 @@ Extract Url Token from Message
     ${first_url_token} =               Get From List                   ${url_token}                     0
     [Return]                           ${first_url_token}
 
-# TODO refactor into Front keyword
+# TODO refactor into Front End keyword
 Nativage to Correct Url Token
     ${extracted_url_token} =    Extract Url Token from Message
     go to                       ${extracted_url_token}
 
-# TODO refactor into Front keyword
+# TODO refactor into Front End keyword
 Nativage to Incorrect Url Token
     ${extracted_url_token} =    Extract Url Token from Message
     # TODO replace with Remove String Using Regexp

@@ -18,9 +18,12 @@ ${LOGIN_PROVIDER} =    google
 *** Test Cases ***
 
 User should not be able to navigate to close initial survey popup twice
-    [Documentation]     Test case
-    [Tags]              Dummy
+    [Documentation]                    Test case
+    [Tags]                             Dummy
     Home.Navigate to
+    Home.Close Initial Survey Popup
+    Home.Navigate to
+    Home.Close Initial Survey Popup
 
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case
