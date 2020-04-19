@@ -3,9 +3,8 @@ Documentation    Test suite
 Resource         ../Resources/FrontApp.robot
 Resource         ../Resources/EmailApp.robot
 Resource         ../Resources/Common.robot
-Test Setup       Run Keywords
-...              Common.Begin Web Test          AND
-...              Set Screenshot Directory       EMBED
+Suite Setup      Set Screenshot Directory       EMBED
+Test Setup       Common.Begin Web Test
 Test Teardown    Common.End Web Test
 
 *** Variables ***
@@ -14,10 +13,19 @@ ${URL} =               https://dev.dozorro.work
 ${LOGIN_PROVIDER} =    google
 
 *** Test Cases ***
-User should not be able to navigate to homepage
-    [Documentation]     Test case
-    [Tags]              Subscription
+User should not be able to click settings tab on homepage
+    [Documentation]                    Test case
+    [Tags]                             Dummy
     Home.Navigate to
+    UserSettings.Click Settings Tab
+
+User should not be able to navigate to close initial survey popup twice
+    [Documentation]                    Test case
+    [Tags]                             Dummy
+    Home.Navigate to
+    Home.Close Initial Survey Popup
+    Home.Navigate to
+    Home.Close Initial Survey Popup
 
 User should be able to activate and deactivate email channel subscription with correct url token
     [Documentation]                                                  Test case
