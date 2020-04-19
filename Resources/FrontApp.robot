@@ -21,6 +21,10 @@ Log in with Google
     Home.Enter Google Login Popup User Password
     Home.Verify User Logged In
 
+Log in
+    Run Keyword If    '${LOGIN_PROVIDER}'=='facebook'    FrontApp.Log in with Facebook
+    ...               ELSE                               FrontApp.Log in with Google
+
 Send Activation Email
     TopNav.Click User Nofications Link
     UserSettings.Click Settings Tab
