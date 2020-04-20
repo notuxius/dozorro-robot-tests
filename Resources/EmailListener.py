@@ -21,9 +21,6 @@ class EmailListener:
         if extracted_email_provider == "gmail.com":
             smtp_addr_port = "smtp.gmail.com:587"
 
-        elif extracted_email_provider == "ya.ru" or "yandex.ru":
-            smtp_addr_port = "smtp.yandex.com:587"
-
         return smtp_addr_port
 
     def start_suite(self, name, attrs):
