@@ -59,6 +59,6 @@ Verify Email Channel is not Activated
 Verify Email Channel is not Activated due to Timeout
     UserNotify.Verify Unsuccess Message Timeout
 
-Verify Email Field is Available for Input
+Verify Email Channel Subscription Field is Available for Input
     UserSettings.Navigate to
     UserSettings.Verify Email Channel Subscription Input Field is Enabled

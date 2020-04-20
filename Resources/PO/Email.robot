@@ -4,12 +4,13 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${EMAIL_HOST} =                                  imap.gmail.com
-${EMAIL_PORT} =                                  993
-${EMAIL_SENDER} =                                notify@bot.dozorro.org
-${EMAIL_POLL_FREQ} =                             2
-${EMAIL_TIMEOUT} =                               30
-${EMAIL_URL_TOKEN_REGEXP} =                      https://.+\d{3}(?:-\d{3}){3}
+${EMAIL_HOST} =         imap.gmail.com
+${EMAIL_PORT} =         993
+${EMAIL_SENDER} =       notify@bot.dozorro.org
+${EMAIL_POLL_FREQ} =    2
+${EMAIL_TIMEOUT} =      30
+# TODO improve URL regex selection
+${EMAIL_URL_TOKEN_REGEXP} =                      https://.*
 ${EMAIL_URL_TOKEN_WITHOUT_LAST_CHAR_REGEXP} =    ^.*?(?=\d$)
 
 *** Keywords ***
